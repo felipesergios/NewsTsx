@@ -21,6 +21,7 @@ import {
     FaAdjust,
     FaAccessibleIcon,
   } from 'react-icons/fa'
+import ChangeColor from './ChangeColor';
   
   export default function Menu({ children }: { children: ReactNode }) {
     const { isOpen, onToggle } = useDisclosure();
@@ -80,6 +81,7 @@ import {
   
     return (
       <Stack direction={'row'} spacing={4}>
+        <ChangeColor/>
         {NAV_ITEMS.map((navItem) => (
           <Box key={navItem.label}>
             <Popover trigger={'hover'} placement={'bottom-start'}>
@@ -111,6 +113,7 @@ import {
                       <DesktopSubNav key={child.label} {...child} />
                     ))}
                   </Stack>
+                  
                 </PopoverContent>
               )}
             </Popover>

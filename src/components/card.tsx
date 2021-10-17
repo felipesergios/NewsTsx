@@ -5,28 +5,27 @@ import {
   Heading,
   Text,
   Stack,
-  Avatar,
   useColorModeValue,
-  Image
 } from '@chakra-ui/react';
 interface postProps{
     title: string;
-    link:string;
     time:string;
 }
 
-export default function PostBlog({title,link,time}:postProps) {
+export default function PostBlog({title,time}:postProps) {
   return (
-    <Center py={6}>
+    <Center py={2}>
       <Box
-        maxW={'445px'}
+        maxW={'400px'}
         maxH={'400px'}
-        w={'full'}
+        w={'300px'}
+        h={'300px'}
         bg={useColorModeValue('white', 'gray.900')}
         boxShadow={'2xl'}
         rounded={'md'}
         p={6}
-        overflow={'hidden'}>
+        overflow={'hidden'}
+        >
         
         <Stack>
     

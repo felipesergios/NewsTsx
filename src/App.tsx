@@ -1,20 +1,15 @@
 import React,{useState ,useEffect} from "react"
-
-//import api from './services/api';
 import axios from 'axios';
 import {
   ChakraProvider,
   Box,
-  Text,
-  Link,
-  VStack,
-  Code,
   SimpleGrid,
+  Link,
   theme,
+  Center,
+  Text,
 } from "@chakra-ui/react"
 
-import { ColorModeSwitcher } from "./ColorModeSwitcher"
-import { Logo } from "./Logo"
 import PostBlog from "./components/card"
 import Menu from './components/navbar'
 
@@ -31,22 +26,28 @@ export default function App() {
         },
        
     })
-    setNews(response.data.list);
-    //console.log(response.data.list);      
+    setNews(response.data.list);  
     }
     loadNews()
 },[]);
   return(
     <ChakraProvider theme={theme}>
       <Menu>
+<Center>
+<Text fontSize="3xl" as="i" center>
+        Bem vindo ao React-News
+      </Text>
+</Center>
       
 
-<SimpleGrid columns={[2, null, 4]} spacing="15px" >
+<SimpleGrid columns={[1, null, 3]} spacing="15px" >
     
     {news.map((newsData)=>(
+      <Link color="teal.500" href={newsData.link}>
       <Box textAlign="center" fontSize="xl">
       <PostBlog key={news.title} title={newsData.title} link={newsData.link} time={newsData.time}/>
       </Box>
+      </Link>
     ))}
     
 </SimpleGrid>
